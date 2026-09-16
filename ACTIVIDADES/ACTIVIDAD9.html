@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Crea un programa que adivine un numero introducido al iniciar el programa.
+El usuario tiene 5 oportunidades.
+Si repite el numero el programa nos avisa que eso ya lo dijimos.*/
+
+let miNumero=Number(prompt("Introduce un numero para adivinar"));;
+
+alert("Adivina el numero, tienes 5 oportunidades");
+
+let numero1=Number(prompt("Introduce un numero"));
+if(numero1==miNumero){
+    alert("Has acertado");
+}else{
+    alert("Adivina el numero, tienes 4 oportunidades");
+    let numero2=Number(prompt("Introduce un numero"));
+    if (numero2==miNumero ){
+        alert("has acertado");
+    }else if(numero2==numero1){
+        alert("Ese numero ya lo dijiste, adivina el numero, tienes 3 oportunidades");
+    }else{
+        alert("fallaste, te quedan 3 oportunidades");
+        let numero3=Number(prompt("Introduce un numero"));
+        if(numero3==miNumero){
+            alert("Has acertado");
+        }else if(numero3==numero1 && numero3==numero2){
+        alert("Ese numero ya lo dijiste, adivina el numero, tienes 2 oportunidades");
+        }else{
+            alert("fallaste, te quedan 2 oportunidades");
+            let numero4=Number(prompt("Introduce un numero"));
+            if(numero4==miNumero){
+                alert("has acertado");
+            }else if(numero4==numero1 && numero4==numero2 && numero4==numero3){
+                alert("Ese numero ya lo dijiste, adivina el numero, tienes 1 oportunidades");
+            }else{
+                alert("fallaste, te queda 1 oportunidad");
+                let numero5=Number(prompt("Introduce un numero"));
+                if(numero5==miNumero){
+                    alert("has acertado");
+                }else if(numero5==numero1 && numero5==numero2 && numero5==numero3 && numero5==numero4){
+                    alert("Ese numero ya lo dijiste, adivina el numero, te quedaste sin oportunidades");
+                }else{
+                    alert("fallaste, te quedaste sin oportunidades");
+                }
+            }
+    }
+    }
+}
+</script>
+</body>
+</html>

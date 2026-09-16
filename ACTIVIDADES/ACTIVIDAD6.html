@@ -11,9 +11,31 @@
         /*Vamos a hacer un programa para jugar a priedra-papel-tijera.
 El programa pide por prompt que ha sacado cada jugador. Por ejemplo, jugador 1: papel, jugador 2: tijera.
 El programa nos dice si ha ganado alguien.*/
+let a="tijeras";
+let b="papel";
+let c="piedra";
+
+let jugador1 = prompt("Piedra, papel o tijeras");
+let jugador2 = prompt("piedra, papel o tijeras");
+
+if( jugador1 == jugador2){
+    alert("Empate");
+}else if(jugador1 == a && jugador2 == b){
+    alert("gana jugador 1");
+}else if(jugador1 == a && jugador2 == c){
+    alert("gana jugador 2");
+}else if(jugador1 == b && jugador2 == c){
+    alert("gana jugador 1");
+}else if(jugador1==b && jugador2 == a){
+    alert("gana jugador 2");
+}else if(jugador1 == c && jugador2 == a){
+    alert("gana jugador 1");
+}else if(jugador1 == c && jugador2 == b){
+    alert("gana jugador 2");
+}
 
 
-    </script>
+ </script>
 
 </body>
 </html>
