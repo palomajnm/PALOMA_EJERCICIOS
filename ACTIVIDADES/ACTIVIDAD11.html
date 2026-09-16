@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Modifica el ejercicio 5 para que el nombre de los usuarios se introduzca junto con las monedas que tienen escondidas:  Ejemplo: Diego 4 Fernando 5 Luis 2 Alfredo 0 Federico 1.
+Además, no se puede repetir el numero que elige cada uno al adivinar.
+    <script>
+        /*Vamos a hacer un programa para jugar a los chinos.
+El programa pide por prompt la configuración de las monedas que tienen escondidas cada jugador.
+Después pide por teclado que cada jugador adivine cuantas monedas hay en total.
+Finalmente me dice quien ha ganado. Puede haber varios ganadores.
+Modifica el ejercicio 5 para que el nombre de los usuarios se introduzca junto con las monedas que tienen escondidas:  
+Ejemplo: Diego 4 Fernando 5 Luis 2 Alfredo 0 Federico 1.
+Además, no se puede repetir el numero que elige cada uno al adivinar.
+*/
+
+
+        let jugador1 = Number(prompt("escribe el numero de monedas que tienes"));
+        let j1dice = Number(prompt("Jugador 1 dice: "));
+        let jugador2 = Number(prompt("escribe el numero de monedas que tienes"));
+        let j2dice = Number(prompt("Jugador 2 dice: "));
+        let jugador3 = Number(prompt("escribe el numero de monedas que tienes"));
+        let j3dice = Number(prompt("Jugador 3 dice: "));
+        let jugador4 = Number(prompt("escribe el numero de monedas que tienes"));
+        let j4dice = Number(prompt("Jugador 4 dice: "));
+
+        let total = jugador1 + jugador2 + jugador3 + jugador4;
+
+        if (j1dice === total){
+            alert("Jugador 1 ha ganado");
+        }
+        if (j2dice === total){
+            alert("Jugador 2 ha ganado");
+        }
+        if (j3dice === total){
+            alert("Jugador 3 ha ganado");
+        }
+        if (j4dice === total){
+            alert("Jugador 4 ha ganado");
+        }
+    </script>
+</body>
+</html>
