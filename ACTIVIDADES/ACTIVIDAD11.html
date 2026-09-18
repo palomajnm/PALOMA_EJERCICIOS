@@ -20,27 +20,45 @@ Además, no se puede repetir el numero que elige cada uno al adivinar.
 
 
         let jugador1 = Number(prompt("escribe el numero de monedas que tienes"));
-        let j1dice = Number(prompt("Jugador 1 dice: "));
+        let j1dice = Number(prompt("Diego dice: "));
+
         let jugador2 = Number(prompt("escribe el numero de monedas que tienes"));
-        let j2dice = Number(prompt("Jugador 2 dice: "));
+        let j2dice = Number(prompt("Fernando dice: "));
+
+        if(j2dice == j1dice){
+            alert("numero repetido, elige otro");
+            j2dice = Number(prompt("Fernando dice: "));
+        }
+
         let jugador3 = Number(prompt("escribe el numero de monedas que tienes"));
-        let j3dice = Number(prompt("Jugador 3 dice: "));
+        let j3dice = Number(prompt("Luis dice: "));
+
+        if(j3dice == j2dice || j3dice == j1dice){
+            alert("numero repetido, elige otro");
+            j3dice = Number(prompt("JLuis dice: "));
+        }
+
         let jugador4 = Number(prompt("escribe el numero de monedas que tienes"));
-        let j4dice = Number(prompt("Jugador 4 dice: "));
+        let j4dice = Number(prompt("Alfredo dice: "));
+
+        if(j4dice == j3dice || j4dice == j2dice ||j4dice == j3dice ){
+            alert("numero repetido, elige otro");
+            j4dice = Number(prompt("Alfredo dice: "));
+        }
 
         let total = jugador1 + jugador2 + jugador3 + jugador4;
 
         if (j1dice === total){
-            alert("Jugador 1 ha ganado");
+            alert("JDiego ha ganado");
         }
         if (j2dice === total){
-            alert("Jugador 2 ha ganado");
+            alert("Fernando ha ganado");
         }
         if (j3dice === total){
-            alert("Jugador 3 ha ganado");
+            alert("Luis ha ganado");
         }
         if (j4dice === total){
-            alert("Jugador 4 ha ganado");
+            alert("Alfredo ha ganado");
         }
     </script>
 </body>

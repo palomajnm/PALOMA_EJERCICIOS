@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Modifica la actividad 7 para que el programa nos diga la posición que hemos acertado. Por ejemplo, si acertamos la segunda, nos saldría: "Acertaste una: _ C _ _"
+Si se acertó una letra y se acierta la siguiente, en pantalla deben salir las dos. Por ejemplo: TA _ _
+Además el programa nos avisa si la letra ya la hemos dicho anteriormente. 
+Por ultimo ten en cuenta que podemos tener dos letras iguales en la palabra.
+    <script>
+    let palabra = prompt("Introduce la palabra secreta de 4 letras:");
+
+    let l1 = palabra.charAt(0);
+    let l2 = palabra.charAt(1);
+    let l3 = palabra.charAt(2);
+    let l4 = palabra.charAt(3);
+
+    let p1 = "_";
+    let p2 = "_";
+    let p3 = "_";
+    let p4 = "_";
+
+    let intentadas = "";
+    let gano = false;
+
+    alert("Tienes 7 oportunidades para adivinar la palabra de 4 letras.");
+
+    let intento = prompt("Oportunidad 1/7.");
+
+    if (intentadas.indexOf(intento) !== -1) {
+        alert("Ya habías dicho la letra " + intento + " anteriormente.");
+    } else {
+        intentadas = intentadas + intento + " ";
+        let acierto = false;
+
+        if (intento === l1) { 
+            p1 = l1; 
+            acierto = true; 
+        }
+        if (intento === l2) { 
+            p2 = l2; 
+            acierto = true; 
+        }
+        if (intento === l3) { 
+            p3 = l3; 
+            acierto = true; 
+        }
+        if (intento === l4) { 
+            p4 = l4; 
+            acierto = true; 
+        }
+        
+        if (acierto) {
+            alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+        } else {
+            alert("Fallo. La letra " + intento + " no está.");
+        }
+    }
+
+    if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+        gano = true;
+        alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 2/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        }
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 3/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        }
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 4/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        }
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 5/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        }
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 6/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        }
+    }
+
+    if (!gano) {
+        intento = prompt("Oportunidad 7/7. Introduce una letra:");
+
+        if (intentadas.indexOf(intento) !== -1) {
+            alert("Ya habías dicho la letra " + intento + " anteriormente.");
+        } else {
+            intentadas = intentadas + intento + " ";
+            let acierto = false;
+
+            if (intento === l1) { 
+                p1 = l1; 
+                acierto = true; 
+            }
+            if (intento === l2) { 
+                p2 = l2; 
+                acierto = true; 
+            }
+            if (intento === l3) { 
+                p3 = l3; 
+                acierto = true; 
+            }
+            if (intento === l4) { 
+                p4 = l4; 
+                acierto = true; 
+            }
+            
+            if (acierto) {
+                alert("¡Acertaste! Estado: " + p1 + " " + p2 + " " + p3 + " " + p4);
+            } else {
+                alert("Fallo. La letra " + intento + " no está.");
+            }
+        }
+
+        if (p1 === l1 && p2 === l2 && p3 === l3 && p4 === l4) {
+            gano = true;
+            alert("¡Felicidades! Has adivinado la palabra: " + palabra);
+        } else {
+            alert("Has agotado los 7 intentos. La palabra era: " + palabra);
+        }
+    }
+</script>
+</body>
+</html>
