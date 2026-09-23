@@ -1,7 +1,12 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Cabecera from './components/Cabecera.vue'
+import Inicio from './components/Inicio.vue'
+import Modelos from './components/Modelos.vue'
+import Pie from './components/Pie.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <Cabecera />
+  <main><Inicio /><Modelos /></main>
+  <Pie />
 </template>
