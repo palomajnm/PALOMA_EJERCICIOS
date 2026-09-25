@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        alert("Notas primera evaluacion");
+        let evaluacion1=[];
+        let suma=0;
+        for(let i=0; i<3; i++){
+            evaluacion1[i]= Number(prompt("nota numero: " + i));
+            suma+=evaluacion1[i];
+
+            
+        }
+        
+        alert(evaluacion1);
+        let media=suma/evaluacion1.length;
+        
+        if(evaluacion1[0]<5 || evaluacion1[1]<5 || evaluacion1[2]<5){
+                alert("tienes una nota suspensa");
+        }else if(media<7){
+            alert("suspenso con: " + media);
+        }else{
+            alert("aprobado con: " + media);
+        }
+
+        
+
+    </script>
+</body>
+</html>
