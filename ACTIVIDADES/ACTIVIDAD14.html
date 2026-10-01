@@ -7,28 +7,63 @@
 </head>
 <body>
     <script>
-        alert("Notas primera evaluacion");
-        let evaluacion1=[];
-        let suma=0;
-        for(let i=0; i<3; i++){
-            evaluacion1[i]= Number(prompt("nota numero: " + i));
-            suma+=evaluacion1[i];
+        
+        let evaluacion1 = [];
+        let rec1 = 0;
 
-            
+        alert(" PRIMERA EVALUACIÓN");
+        for (let i = 0; i < 3; i++) {
+            evaluacion1[i] = Number(prompt("Nota del examen " + (i + 1) + " de la 1ª Evaluación (0-100):"));
         }
+        rec1 = Number(prompt("Nota de recuperación de la 1ª Evaluación (si no hizo, pon 0):"));
         
-        alert(evaluacion1);
-        let media=suma/evaluacion1.length;
-        
-        if(evaluacion1[0]<5 || evaluacion1[1]<5 || evaluacion1[2]<5){
-                alert("tienes una nota suspensa");
-        }else if(media<7){
-            alert("suspenso con: " + media);
-        }else{
-            alert("aprobado con: " + media);
+        let rec2 = 0;
+        let evaluacion2 = [];
+
+        alert("SEGUNDA EVALUACIÓN");
+        for (let i = 0; i < 3; i++) {
+            evaluacion2[i] = Number(prompt("Nota del examen " + (i + 1) + " de la 2ª Evaluación (0-100):"));
+        }
+        rec2 = Number(prompt("Nota de recuperación de la 2ª Evaluación (si no hizo, pon 0):"));
+
+        let rec3 = 0;
+        let evaluacion3 = [];
+
+        alert("TERCERA EVALUACIÓN");
+        for (let i = 0; i < 3; i++) {
+            evaluacion3[i] = Number(prompt("Nota del examen " + (i + 1) + " de la 3ª Evaluación (0-100):"));
+        }
+        rec3 = Number(prompt("Nota de recuperación de la 3ª Evaluación (si no hizo, pon 0):"));
+
+        let evaluaciones = [evaluacion1, evaluacion2, evaluacion3];
+        let recuperaciones = [rec1, rec2, rec3];
+        let cortes = [70, 60, 50];
+
+        let alumnoAprobado = true;
+
+        for (let i = 0; i < 3; i++) { //for para saber las notas de las evaluaciones
+            let evActual = evaluaciones[i];
+            let notaCorte = cortes[i];
+            let recActual = recuperaciones[i];
+            let aprobadaPorExamenes = true;
+
+            for (let j = 0; j < 3; j++) { //for para saber la nota de los examenes
+                    if (evActual[j] < notaCorte) {
+                        aprobadaPorExamenes = false;
+                    }
+                }
+            if (aprobadaPorExamenes == false) {
+                if (recActual < 50) {
+                    alumnoAprobado = false;
+                }
+            }
         }
 
-        
+        if (alumnoAprobado == true) {
+            alert("El alumno está APROBADO.");
+        } else {
+            alert("El alumno está SUSPENSO.");
+        }
 
     </script>
 </body>
