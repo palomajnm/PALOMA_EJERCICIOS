@@ -38,3 +38,10 @@ const eliminarDelCarrito = (index) => {
     @agregar-al-carrito="agregarAlCarrito"
   />
 </template>
+
+<style>
+body{
+  background-color: black;
+}
+
+</style>
