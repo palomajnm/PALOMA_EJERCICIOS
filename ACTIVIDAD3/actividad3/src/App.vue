@@ -41,7 +41,6 @@ const eliminarDelCarrito = (index) => {
 
 <style>
 body{
-  background-color: black;
+  background-color: rgb(30, 2, 99);
 }
-
 </style>
