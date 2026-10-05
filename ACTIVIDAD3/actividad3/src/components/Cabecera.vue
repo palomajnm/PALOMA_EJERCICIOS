@@ -1,21 +1,29 @@
 <script setup>
-import {ref} from 'vue'
+import { ref, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
     carrito: {
         type: Array,
         default: () => []
     }
 })
 
+const emits = defineEmits(['abrir-modelos', 'eliminar-carrito'])
+
 const mostrarCarrito = ref(false)
 
-defineEmits(['abrir-modelos'])
+const totalCarrito = computed(() => {
+    return props.carrito.reduce((total, producto) => total + producto.precio, 0)
+})
+
+const eliminarItem = (index) => {
+    emits('eliminar-carrito', index)
+}
 </script>
 
 <template>
     <header>
-        <a  class="marca" href="#inicio"><h1>MANUEL SHIRTS</h1></a>
+        <a class="marca" href="#inicio"><h1>MANUEL SHIRTS</h1></a>
         <nav>
             <a href="#modelos" @click.prevent="$emit('abrir-modelos')">Catálogo Completo</a>
             <a href="#contacto">Contacto</a>
@@ -29,13 +37,27 @@ defineEmits(['abrir-modelos'])
                 <div v-if="mostrarCarrito" class="carrito-dropdown">
                     <h4>Tus Camisetas</h4>
                     <p v-if="carrito.length === 0" class="vacio">El carrito está vacío.</p>
-                    <ul v-else>
-                        <li v-for="(item, index) in carrito" :key="index">
-                        <span><strong>{{ item.nombre }}</strong> (Talla {{ item.talla }})</span>
-                        <span>{{ item.precio.toFixed(2) }} EUR</span>
+                    
+                    <!-- Envolvemos todo el bloque de lista + total dentro del v-else -->
+                    <div v-else>
+                        <ul>
+                            <li v-for="(item, index) in carrito" :key="index">
+                                <div>
+                                    <strong>{{ item.nombre }}</strong> (Talla {{ item.talla }})
+                                    <br>
+                                    <span>{{ item.precio.toFixed(2) }} EUR</span>
+                                </div>
+                                <button class="btn-eliminar-item" @click="eliminarItem(index)" title="Eliminar producto">
+                                    ✕
+                                </button>
+                            </li>
+                        </ul>
                         
-                        </li>
-                    </ul>
+                        <div class="total-container">
+                            <strong>Total:</strong>
+                            <strong>{{ totalCarrito.toFixed(2) }} EUR</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -50,14 +72,14 @@ defineEmits(['abrir-modelos'])
     max-width:1200px; 
     margin:20px; 
     padding:24px; 
-    position: relative; }
+    position: relative; 
+}
 
 .marca {
     color:#a20bed; 
     font-size:50px; 
     font-weight:bold; 
     text-decoration:none;
-    
 }
 
 h1{
@@ -68,26 +90,32 @@ h1{
 nav { 
     display: flex; 
     align-items: center; 
-    gap: 10px; }
+    gap: 10px; 
+}
+
 nav a { 
     color:#f6f7f8; 
     text-decoration:none; 
     margin:10px;
 }
+
 img{
     width: 0.5cm;
 }
 
 .carrito-container { 
-    position: relative; }
+    position: relative; 
+}
 
 .btn-carrito { 
     background: #c478d5; 
-    color: white; border: 
-    none; padding: 8px 14px; 
+    color: white; 
+    border: none; 
+    padding: 8px 14px; 
     border-radius: 8px; 
     cursor: pointer; 
-    font-weight: bold; }
+    font-weight: bold; 
+}
 
 .carrito-dropdown { 
     position: absolute; 
@@ -96,31 +124,70 @@ img{
     background: white; 
     border: 1px solid #ddd; 
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
-    width: 280px; padding: 16px; 
+    width: 280px; 
+    padding: 16px; 
     border-radius: 8px; 
-    z-index: 200; }
+    z-index: 200; 
+    color: #333; /* Garantizamos que el texto dentro del menú desplegable sea oscuro */
+}
 
 .carrito-dropdown h4 { 
     margin-top: 0; 
     margin-bottom: 10px; 
     border-bottom: 1px solid #eee; 
-    padding-bottom: 5px; }
+    padding-bottom: 5px; 
+}
+
 .carrito-dropdown ul { 
     list-style: none; 
     padding: 0; 
     margin: 0; 
     max-height: 200px; 
-    overflow-y: auto; }
+    overflow-y: auto; 
+}
 
 .carrito-dropdown li { 
     display: flex; 
-    justify-content: 
-    space-between; font-size: 14px; 
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 14px; 
     margin-bottom: 8px; 
     border-bottom: 1px dashed #eee; 
-    padding-bottom: 4px; }
+    padding-bottom: 4px; 
+}
+
 .vacio { 
     font-size: 14px; 
     color: #6a6767; 
-    margin: 0; }
+    margin: 0; 
+}
+
+/* ESTILOS AÑADIDOS PARA EL BOTÓN Y EL TOTAL */
+.btn-eliminar-item {
+    background: #e11d48;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-eliminar-item:hover {
+    background: #be123c;
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 2px solid #eee;
+    color: #111827;
+    font-size: 15px;
+}
 </style>

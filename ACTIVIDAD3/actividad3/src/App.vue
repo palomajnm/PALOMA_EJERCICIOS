@@ -11,6 +11,11 @@ const carrito = ref([])
 
 const agregarAlCarrito = (producto) => {
   carrito.value.push(producto)
+
+}
+
+const eliminarDelCarrito = (index) => {
+  carrito.value.splice(index, 1)
 }
 </script>
 
@@ -18,10 +23,12 @@ const agregarAlCarrito = (producto) => {
   <Cabecera 
   :carrito="carrito" 
   @abrir-modelos="mostrarCatalogo = true"
+  @eliminar-carrito="eliminarDelCarrito"
   />
   <main>
     <Inicio @abrir-modelos="mostrarCatalogo = true" />
     <Modelos @agregar-al-carrito="agregarAlCarrito" />
+
   </main>
   <Pie />
 

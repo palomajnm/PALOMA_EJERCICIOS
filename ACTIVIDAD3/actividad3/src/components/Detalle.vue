@@ -36,6 +36,7 @@
 
     const hayStock = computed(() => unidadesDisponibles.value > 0)
 
+
     const comprar = () => {
         if (!hayStock.value) return
         
@@ -43,7 +44,7 @@
             id: props.camiseta.id,
             nombre: props.camiseta.nombre,
             talla: tallaSeleccionada.value,
-            precio: precioCalculado.value
+            precio: precioCalculado.value,
         })
         emit('cerrar')
         }
