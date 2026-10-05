@@ -73,7 +73,7 @@
             <label>Selecciona tu talla:</label>
             <div class="opciones-talla">
                 <button 
-                v-for="(extra, talla) in suplementosTalla" 
+                v-for="(talla) in suplementosTalla" 
                 :key="talla"
                 :class="{ seleccionada: tallaSeleccionada === talla }"
                 @click="tallaSeleccionada = talla"
