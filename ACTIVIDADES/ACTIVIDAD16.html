@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let stockManzana = 10;
+        let precioManzana = 2.50;
+
+        let stockPlatano = 8;
+        let precioPlatano = 1.80;
+
+        let stockNaranja = 12;
+        let precioNaranja = 1.50;
+
+        let stockFresa = 5;
+        let precioFresa = 4.00;
+
+        let stockPera = 7;
+        let precioPera = 2.10;
+
+        let totalPagar = 0;
+
+        for (let i=1; i<=3; i++){
+
+            let menu = "- Manzana (" + stockManzana + " kg disponibles) - " + precioManzana + " €/kg\n" +
+                        "- Platano (" + stockPlatano + " kg disponibles) - " + precioPlatano + " €/kg\n" +
+                        "- Naranja (" + stockNaranja + " kg disponibles) - " + precioNaranja + " €/kg\n" +
+                        "- Fresa (" + stockFresa + " kg disponibles) - " + precioFresa + " €/kg\n" +
+                        "- Pera (" + stockPera + " kg disponibles) - " + precioPera + " €/kg\n";
+            let fruta =prompt("PETICION" +i + "de 3" + menu + "\n ¿Que fruta quieres?");
+            
+            if (fruta === null){
+                alert("Has cancelado la compra");
+            }
+
+            fruta=fruta.toLocaleLowerCase().trim();
+
+            if(fruta ==="manzana" || fruta === "platano" || fruta === "naranja" || fruta === "fresa" || fruta=== "pera"){
+                let cantidadTexto=prompt("¿Cuantos kilos de " + fruta + " quieres?");
+                let cantidad = parseFloat(cantidadTexto);
+
+                if(fruta === "manzana"){
+                    if(cantidad > stockManzana){
+                        alert("no hay suficientes manzanas");
+                    }else{
+                        stockManzana=stockManzana-cantidad;
+                        let subtotal=cantidad*precioManzana;
+                        totalPagar=totalPagar+subtotal;
+                        alert("añadido " + cantidad + "kg de manzanas" +subtotal );
+                    }
+                }else if(fruta === "platano"){
+                    if (cantidad > stockPlatano) {
+                        alert("No hay suficiente stock de plátano.");
+                    }else{
+                        stockPlatano = stockPlatano - cantidad;
+                        let subtotal = cantidad * precioPlatano;
+                        totalPagar = totalPagar + subtotal;
+                        alert("Añadido: " + cantidad + " kg de plátano " + subtotal ); 
+                    }
+                }else if (fruta === "naranja") {
+                    if (cantidad > stockNaranja) {
+                    alert("No hay suficiente stock de naranja.");
+                    } else {
+                        stockNaranja = stockNaranja - cantidad;
+                        let subtotal = cantidad * precioNaranja;
+                        totalPagar = totalPagar + subtotal;
+                        alert("Añadido: " + cantidad + " kg de naranja " + subtotal );
+                    }
+                } 
+                else if (fruta === "fresa") {
+                    if (cantidad > stockFresa) {
+                    alert(" No hay suficiente stock de fresa.");
+                    } else {
+                        stockFresa = stockFresa - cantidad;
+                        let subtotal = cantidad * precioFresa;
+                        totalPagar = totalPagar + subtotal;
+                        alert(" Añadido: " + cantidad + " kg de fresa " + subtotal);
+                    }
+                } 
+                else if (fruta === "pera") {
+                    if (cantidad > stockPera) {
+                    alert(" No hay suficiente stock de pera.");
+                    } else {
+                        stockPera = stockPera - cantidad;
+                        let subtotal = cantidad * precioPera;
+                        totalPagar = totalPagar + subtotal;
+                        alert("Añadido: " + cantidad + " kg de pera " + subtotal );
+                    }
+                }
+            }else{
+                alert("La fruta '" + fruta + "' no existe.");
+            }
+        }
+        alert(totalPagar.toFixed(2));
+    </script>
+</body>
+</html>
