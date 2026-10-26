@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--modificacion del ejercicio 4. Ahora se pueden pedir tantas frtuas como se quiera, solo quiere saber el total-->
+    <script>
+        let fruta1=prompt("Nombre de la fruta 1: ");
+        let fruta2=prompt("Nombre de la fruta 2: ");
+        let fruta3=prompt("Nombre de la fruta 3: ");
+
+
+        let precio1= Number(prompt("Precio de la fruta 1: "));
+        let precio2= Number(prompt("Precio de la fruta 2: "));
+        let precio3= Number(prompt("Precio de la fruta 3: "));
+
+        let comprar=true;
+        let total=0;
+
+        while(!comprar){
+            let menu = fruta1 + "tiene un precio" +precio1 + "€ \n" +
+                        fruta2  + "tiene un precio" +precio2 + "€ \n" +
+                        fruta3 + "tiene un precio" +precio3 + "€ \n";
+            let fruta =prompt("El menu "+ menu +  "\n ¿Que fruta quieres?");
+
+            if (fruta === null){
+                alert("Has cancelado la compra");
+            }
+
+            fruta=fruta.toLocaleLowerCase().trim();
+            if(fruta===fruta1 || fruta===fruta2 || fruta===fruta){
+                let cantidadTexto=prompt("¿Cuantos kilos de " + fruta + " quieres?");
+                let cantidad = parseFloat(cantidadTexto);
+            }
+
+            if(fruta===fruta1){
+                
+            }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+    </script>
+</body>
+</html>

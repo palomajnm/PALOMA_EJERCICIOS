@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hacerMedia(notasGrupos){
+            let total = 0;
+            for(let i=0; i<notasGrupos.length; i++){
+                total+= Number (notasGrupos[i]);
+            }
+            return total/notasGrupos.length;
+        }
+
+        function aleatorio(num){
+            return (Math.random()*num).toFixed(0)
+        }
+
+        function aleatorio2(min, max){
+            return min+(Math.random()*(max-min)).toFixed(0)
+        }
+
+        function rellenarNotasGrupo(){
+            let notasAPasar=[];
+            let cantidadAlumnos=aleatorio2(10, 30)
+
+            for(let i=0; i<cantidadAlumnos; i++){
+                notasAPasar.push(aleatorio(0, 10));
+            }
+            return notasAPasar;
+        }
+
+        
+
+        let grupos={
+            "daw1" : hacerMedia(rellenarNotasGrupo()),
+            "daw2" : hacerMedia(rellenarNotasGrupo()),
+            "dam1" : hacerMedia(rellenarNotasGrupo()),
+            "daw2" : hacerMedia(rellenarNotasGrupo()),
+            "smr1" : hacerMedia(rellenarNotasGrupo()),
+            "smr2" : hacerMedia(rellenarNotasGrupo()),
+            "asir1" : hacerMedia(rellenarNotasGrupo()),
+            "asir2" : hacerMedia(rellenarNotasGrupo()),
+
+        };
+        
+        alert(hacerMedia(rellenarNotasGrupo));
+
+        let mayor = 0;
+        let mejorMedia = "";
+
+        for(grupo in grupos){
+            if(mayor>mejorMedia){
+                mayor=grupo;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -4,10 +4,10 @@ defineEmits(['abrir-modelos'])
 
 <template>
   <header class="cabecera">
-    <a class="marca" href="#inicio">STEPUP</a>
+    <router-link class="marca" to="/">STEPUP</router-link>
     <nav>
-      <a href="#modelos" @click.prevent="$emit('abrir-modelos')">Modelos</a>
-      <a href="#contacto">Contacto</a>
+      <router-link to="/" @click.prevent="$emit('abrir-modelos')">Modelos</router-link>
+      <router-link to="/contacto">Contacto</router-link>
     </nav>
     
   </header>
