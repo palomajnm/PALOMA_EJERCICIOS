@@ -1,64 +1,51 @@
 <script setup>
 import { ref, computed } from 'vue';
 
-//Examenes metido en array
-const examenes_e1 = ref([0, 0, 0, 0]);
 
 //Primera evaluacion(Minimo en examen: 70 y en recuperacion: 50)
-/*const e1_ex1 = ref(0);
-const e1_ex2 = ref(0);
-const e1_ex3 = ref(0);
-const e1_rec = ref(0);*/
+//Examenes metido en array
+const examenes_e1 = ref([0, 0, 0, 0]);
 
 
 //comprobamos si aprueba la primera evaluacion
 const apruebaEval1 = computed(() => {
-
+    let resultado = false;
     if (examenes_e1.value[0] >= 70 && examenes_e1.value[1] >= 70 && examenes_e1.value[2] >= 70) {
-        return true;
+        resultado = true;
+        console.log("Estoy aqui");
     } else if (examenes_e1.value[3] >= 50) {
-        return true;
+        resultado = true;
 
-    } else {
-        return false;
     }
-})
+    return resultado;
+});
 
 //Segunda evaluacion(Minimo en examen:60 y en recuperacion: 50)
 
 const examenes_e2 = ref([0, 0, 0, 0]);
 
-/*const e2_ex1 = ref(0);
-const e2_ex2 = ref(0);
-const e2_ex3 = ref(0);
-const e2_rec = ref(0);*/
-
 const apruebaEval2 = computed(() => {
+    let resultado=false;
     if (examenes_e2.value[0] >= 60 && examenes_e2.value[1] >= 60 && examenes_e2.value[2] >= 60) {
-        return true;
+        resultado= true;
     } else if (examenes_e2.value[3] >= 50) {
-        return true;
-    } else {
-        return false;
-    }
+        resultado= true;
+    } 
+    return resultado;
 });
 
 //Tercera evaluacion (minimo en examen: 50 y en recuperacion: 50)
 const examenes_e3 = ref([0,0,0,0]);
 
-/*const e3_ex1 = ref(0);
-const e3_ex2 = ref(0);
-const e3_ex3 = ref(0);
-const e3_rec = ref(0);*/
 
 const apruebaEval3 = computed(() => {
+    let resultado =false;
     if (examenes_e3.value[0] >= 50 && examenes_e3.value[1] >= 50 && examenes_e3.value[2] >= 50) {
-        return true;
+        resultado= true;
     } else if (examenes_e3.value[3] >= 50) {
-        return true;
-    } else {
-        return false;
-    }
+        resultado= true;
+    } 
+    return resultado;
 });
 
 //Resultado general de todas las notas
@@ -68,7 +55,7 @@ const estaAprobado = computed(() => {
     } else {
         return false;
     }
-})
+});
 </script>
 
 <template>
@@ -90,12 +77,13 @@ const estaAprobado = computed(() => {
                             Mínimo ordinario: <strong>70</strong> | Recuperación: <strong>50</strong>
                         </p>
 
-                        <div class="mb-2">
-                            <label class="form-label">Examen 1</label>
-                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e1[0]">
+                        <div v-for="(e1,index) in examenes_e1" :key="index" class="mb-2">
+                            <label v-if="index<3" class="form-label">Examen {{ index+1 }} </label>
+                            <label v-else class="form-label fw-bold">Recuperacion</label>
+                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e1[index]">
                         </div>
 
-                        <div class="mb-2">
+                        <!--<div class="mb-2">
                             <label class="form-label">Examen 2</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e1[1]">
                         </div>
@@ -105,12 +93,12 @@ const estaAprobado = computed(() => {
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e1[2]">
                         </div>
 
-                        <hr class="my-3">
+                        
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">Recuperación</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e1[3]">
-                        </div>
+                        </div>-->
 
                         <!-- RESULTADO DE LA 1.ª EVALUACIÓN -->
                         <div class="alert text-center fw-bold m-0 p-2"
@@ -128,15 +116,16 @@ const estaAprobado = computed(() => {
                     <div class="card-body">
                         <h4 class="card-title text-center text-secondary mb-3">2.ª Evaluación</h4>
                         <p class="text-muted small text-center mb-3">
-                            Mínimo ordinario: <strong>70</strong> | Recuperación: <strong>50</strong>
+                            Mínimo ordinario: <strong>60</strong> | Recuperación: <strong>50</strong>
                         </p>
 
-                        <div class="mb-2">
-                            <label class="form-label">Examen 1</label>
-                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e2[0]">
+                        <div v-for="(e2,index) in examenes_e2" :key="index" class="mb-2">
+                            <label v-if="index<3" class="form-label">Examen {{ index+1 }} </label>
+                            <label v-else class="form-label fw-bold">Recuperacion</label>
+                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e2[index]">
                         </div>
 
-                        <div class="mb-2">
+                        <!--<div class="mb-2">
                             <label class="form-label">Examen 2</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e2[1]">
                         </div>
@@ -151,7 +140,7 @@ const estaAprobado = computed(() => {
                         <div class="mb-3">
                             <label class="form-label fw-bold">Recuperación</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e2[3]">
-                        </div>
+                        </div>--> 
 
                         <!-- RESULTADO DE LA 2.ª EVALUACIÓN -->
                         <div class="alert text-center fw-bold m-0 p-2"
@@ -169,15 +158,16 @@ const estaAprobado = computed(() => {
                     <div class="card-body">
                         <h4 class="card-title text-center text-secondary mb-3">3.ª Evaluación</h4>
                         <p class="text-muted small text-center mb-3">
-                            Mínimo ordinario: <strong>70</strong> | Recuperación: <strong>50</strong>
+                            Mínimo ordinario: <strong>50</strong> | Recuperación: <strong>50</strong>
                         </p>
 
-                        <div class="mb-2">
-                            <label class="form-label">Examen 1</label>
-                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e3[0]">
+                        <div v-for="(e3,index) in examenes_e3" :key="index" class="mb-2">
+                            <label v-if="index<3" class="form-label">Examen {{ index+1 }} </label>
+                            <label v-else class="form-label fw-bold">Recuperacion</label>
+                            <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e3[index]">
                         </div>
 
-                        <div class="mb-2">
+                        <!-- <div class="mb-2">
                             <label class="form-label">Examen 2</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e3[1]">
                         </div>
@@ -192,12 +182,12 @@ const estaAprobado = computed(() => {
                         <div class="mb-3">
                             <label class="form-label fw-bold">Recuperación</label>
                             <input type="number" min="0" max="100" class="form-control" v-model.number="examenes_e3[3]">
-                        </div>
+                        </div>-->
 
                         <!-- RESULTADO DE LA 2.ª EVALUACIÓN -->
                         <div class="alert text-center fw-bold m-0 p-2"
                             :class="apruebaEval3 ? 'alert-success' : 'alert-danger'">
-                            {{ apruebaEval3 ? '2.ª Eval: Aprobada' : '2.ª Eval: Suspensa' }}
+                            {{ apruebaEval3 ? '2.ª Eval: Aprobada' : '3.ª Eval: Suspensa' }}
                         </div>
                     </div>
                 </div>

@@ -10,9 +10,9 @@
           <div>
             <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link class="nav-link" to="/" active-class="active" exact-active-class="active">
-                Resultado
-              </router-link>
+              <router-link to="/">Inicio</router-link> | 
+              <router-link to="/Resultado">Resultado</router-link> | 
+              <router-link to="/Alumnos">Alumnos</router-link>
             </li>
           </ul>
           </div>
