@@ -4,9 +4,10 @@ import Alumnos from "./components/Alumnos.vue";
 
 
 const routes =[
-    { path: '/', name: 'Resultado', component:Resultado },
-    { path: '/Resultado', name:'Resultado', component:Resultado},
-    { path: '/Alumnos', name: Alumnos, component:Alumnos}
+    { path: '/', redirect: '/Alumnos' },
+    { path: '/Alumnos', name: 'Alumnos', component: Alumnos },
+    // El "?" hace que el nombre sea opcional si entras desde el menú superior
+    { path: '/Resultado/:nombre?', name: 'Resultado', component: Resultado }
 ]
 
 export const router = createRouter({
